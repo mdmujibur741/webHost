@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@fortawesome/fontawesome-free/css/all.css";
+/* @import 'v-toaster/dist/v-toaster.css'; */
+
+
+/* mega nav */
+
+.hoverable {
+    position: static;
+  }
+  
+  .hoverable > a:after {
+    content: "\25BC";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+  }
+  
+  .hoverable:hover .mega-menu {
+    display: block;
+  }
+  
+  
+  /* #toggle Class Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  
+  .toggleable > label:after {
+    content: "\25BC";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+  }
+  
+  .toggle-input {
+    display: none;
+  }
+  .toggle-input:not(checked) ~ .mega-menu {
+    display: none;
+  }
+  
+  .toggle-input:checked ~ .mega-menu {
+    display: block;
+  }
+  
+  .toggle-input:checked + label {
+    color: white;
+    background: #2c5282; /*@apply bg-blue-800 */
+  }
+  
+  .toggle-input:checked ~ label:after {
+    content: "\25B2";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+  }
+  
+  
+  .btn{
+             @apply font-bold py-2 px-3 rounded hover:bg-[#17494D] hover:text-white border text-[#17494D] border-[#17494D];
+  }
+  
+  
+.btn-indigo{
+        @apply bg-indigo-600 px-3 py-2 rounded-lg text-white ;
+}  
+
+.btn-edit,.btn-add{
+        @apply bg-indigo-600 px-2 py-1 rounded-lg text-white;
+}
+.btn-show{
+       @apply bg-blue-600 px-2 py-1 rounded-lg text-white;
+}
+
+.btn-delete,.btn-remove{
+  @apply bg-red-600 px-2 py-1 rounded-lg text-white;
+}
+
+.form-control{
+       @apply w-full block border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm py-1;
+}
+
+.form-file{
+      @apply block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 p-1;
+}
