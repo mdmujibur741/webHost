@@ -37,7 +37,9 @@ return new class extends Migration
             $table->foreignId('plan_id')->constrained('plans')->cascadeOnDelete();
             $table->foreignId('duration_id')->constrained('durations')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->softDeletes();
             $table->timestamps();
+           
         });
     }
 

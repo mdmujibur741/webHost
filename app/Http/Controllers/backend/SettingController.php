@@ -39,6 +39,11 @@ class SettingController extends Controller
           }else{
               $favicon = null;
           }
+          if($request->hasFile('home_premium_image')){
+            $home_premium_image = $request->file('home_premium_image')->store('image');
+          }else{
+              $home_premium_image = null;
+          }
 
           if($request->hasFile('footer_img_one')){
             $footer_img_one = $request->file('footer_img_one')->store('image');
@@ -52,7 +57,19 @@ class SettingController extends Controller
               $footer_img_two = null;
           }
 
+          if($request->hasFile('footer_img_three')){
+            $footer_img_three = $request->file('footer_img_three')->store('image');
+          }else{
+              $footer_img_three = null;
+          }
 
+          if($request->hasFile('footer_img_four')){
+            $footer_img_four = $request->file('footer_img_four')->store('image');
+          }else{
+              $footer_img_four = null;
+          }
+
+          
           // Inserts
           Setting::create([
             'mobile' => $request->mobile,
@@ -64,10 +81,19 @@ class SettingController extends Controller
             'about' => $request->about,
             'facebook' => $request->facebook,
             'twitter' => $request->twitter,
+            'home_feature_title' =>$request->home_feature_title,
+           'home_feature_description' =>$request->home_feature_description,
+           'home_package_title' =>$request->home_package_title,
+           'home_package_description' =>$request->home_package_description,
+           'home_premium_title' => $request->home_premium_title,
+           'home_premium_description' => $request->home_premium_description,
+           'home_premium_image' => $home_premium_image,
             'instagram' => $request->instagram,
             'use_link' => $request->use_link,
             'footer_img_one' => $footer_img_one,
             'footer_img_two' => $footer_img_two,
+            'footer_img_three' => $footer_img_three,
+            'footer_img_four' => $footer_img_four,
           
           ]);
 
@@ -100,6 +126,16 @@ class SettingController extends Controller
           $favicon = $setting->favicon;
       }
 
+      if($request->hasFile('home_premium_image')){
+        if($setting->home_premium_image ==!null){
+          Storage::delete($setting->home_premium_image);
+         }
+        $home_premium_image = $request->file('home_premium_image')->store('image');
+       
+      }else{
+          $home_premium_image = $setting->home_premium_image;
+      }
+
       if($request->hasFile('footer_img_one')){
         if($setting->footer_img_one ==!null){
           Storage::delete($setting->footer_img_one);
@@ -118,7 +154,24 @@ class SettingController extends Controller
           $footer_img_two = $setting->footer_img_two;
       }
 
-      //return $request;
+      if($request->hasFile('footer_img_three')){
+        if($setting->footer_img_three ==!null){
+          Storage::delete($setting->footer_img_three);
+         }
+        $footer_img_three = $request->file('footer_img_three')->store('image');
+      }else{
+          $footer_img_three = $setting->footer_img_three;
+      }
+
+      if($request->hasFile('footer_img_four')){
+        if($setting->footer_img_four ==!null){
+          Storage::delete($setting->footer_img_four);
+         }
+        $footer_img_four = $request->file('footer_img_four')->store('image');
+      }else{
+          $footer_img_four = $setting->footer_img_four;
+      }
+
 
        $setting->update([
         'mobile' => $request->mobile,
@@ -131,9 +184,18 @@ class SettingController extends Controller
         'facebook' => $request->facebook,
         'twitter' => $request->twitter,
         'instagram' => $request->instagram,
+        'home_feature_title' =>$request->home_feature_title,
+        'home_feature_description' =>$request->home_feature_description,
+        'home_package_title' =>$request->home_package_title,
+        'home_package_description' =>$request->home_package_description,
+        'home_premium_title' => $request->home_premium_title,
+        'home_premium_description' => $request->home_premium_description,
+        'home_premium_image' => $home_premium_image,
         'use_link' => $request->use_link,
         'footer_img_one' => $footer_img_one,
         'footer_img_two' => $footer_img_two,
+        'footer_img_three' => $footer_img_three,
+        'footer_img_four' => $footer_img_four,
        ]);
 
        return Redirect::back();

@@ -1,6 +1,6 @@
 <template>
     <section
-      class="min-h-[100vh] w-full bg-cover bg-center bg-right bg-blue-600 md:bg-[url('../src/assets/banner.webp')]"
+      class="min-h-[100vh] w-full bg-cover bg-center bg-right bg-[#09176A] md:bg-[url('../src/assets/banner.webp')]"
       
     >
       <div class="lg:flex py-20 lg:justify-start justify-center min-h-[85vh] md:w-11/12 w-full px-20">
@@ -25,7 +25,7 @@
             </div>
             <div>
               <div
-                class="text-center p-5 text-gray-800 text-md md:text-xl font-semibold text-[20px]"
+                class="text-center p-5 text-white text-md md:text-xl font-semibold text-[20px]"
               >
                 Shared Hosting from <br />
                 only $0.99/month*
@@ -34,7 +34,7 @@
           </div>
 
           <div class="my-10">
-            <h3 class="text-black text-lg font-bold">
+            <h3 class="text-white text-lg font-bold">
               Trusted by Businesses for Global Service, Local Relationships
             </h3>
             <hr class="border border-red-600 md:w-5/12" />

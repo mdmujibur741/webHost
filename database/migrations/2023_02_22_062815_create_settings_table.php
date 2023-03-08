@@ -23,8 +23,17 @@ return new class extends Migration
             $table->string('twitter')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
+            $table->string('home_feature_title')->nullable();
+            $table->text('home_feature_description')->nullable();
+            $table->string('home_package_title')->nullable();
+            $table->text('home_package_description')->nullable();
+            $table->string('home_premium_title')->nullable();
+            $table->text('home_premium_description')->nullable();
+            $table->string('home_premium_image')->nullable();
             $table->string('footer_img_one')->nullable();
             $table->string('footer_img_two')->nullable();
+            $table->string('footer_img_three')->nullable();
+            $table->string('footer_img_four')->nullable();
             $table->string('powered')->nullable();
             $table->longText('about')->nullable();
             $table->longText('use_link')->nullable();

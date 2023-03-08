@@ -8,7 +8,9 @@
                 href="#"
                 class="block py-2 px-3 text-[13px] font-semibold md:text-[15px] text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 "
                 aria-current="page"
-                ><i class="fa-solid fa-phone-flip"></i>    <span class="font-semibold "> (+1) 800-707-5786</span>
+                ><i class="fa-solid fa-phone-flip mr-2"></i>   
+                 <span class="font-semibold" v-if="$page.props.Setting.setting" > {{ $page.props.Setting.setting.mobile }} </span>
+                
             </a
               >
             </li>
@@ -158,6 +160,7 @@
 
 <script setup>
 
+import { EMPTY_OBJ } from '@vue/shared';
 import { ref } from 'vue';
 
 const dropDown = ref('false');

@@ -17,14 +17,15 @@ class HostCategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->randomElement(['Dedicated Server','Shared Hosting','Reseller Hosting','Cloud Vps Server','Hosted Dialer','Windows Vps']);
+        $name = $this->faker->unique()->randomElement(['Dedicated Server','Shared Hosting','Reseller Hosting','Cloud Vps Server','Hosted Dialer','Windows Vps','ASP.NET','VPS SPECIAL','Blog Hosting','cPanel Hosting','Student Web Hosting','Boost Web Hosting','Non Profit Hosting']);
         $slug = Str::slug($name, '-');
 
         return [
         'name' => $name,
         'slug' => $slug,
         'home_show'	=> 1,
-        'priority' => $this->faker->unique()->numberBetween(1,10),
+        'description' => $this->faker->text(300),
+        'priority' => $this->faker->unique()->numberBetween(1,100),
          'user_id' => 1,  
         ];
     }

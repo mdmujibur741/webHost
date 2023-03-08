@@ -1,11 +1,10 @@
 <template>
 
-    <section class="min-h-[95vh] bg-gradient-to-r from-indigo-500 to-fuchsia-300 pt-10 pb-10">
+    <section class="min-h-[95vh] bg-indigo-500  pt-10 pb-10">
            <div class="w-10/12 md:w-11/12 py-18 mx-auto">
-            <h2 class="text-center font-bold text-xl lg:text-[36px] m-1 pt-6 text-white">Chowdhury Host</h2>
+            <h2 class="text-center font-bold text-xl lg:text-[36px] m-1 pt-6 text-white" v-if="$page.props.Setting.setting" > {{ $page.props.Setting.setting.home_package_title }} </h2>
 
-          <p class="text-center text-[15px] py-6 mb-8 text-white">  We've got the perfect hosting plan for your next site, app, platfrom, of blog- all backed by our
-            award winning 24/7 support based right here in Sheridan, WY  </p>
+          <p class="text-center text-[15px] py-6 mb-8 text-white" v-if="$page.props.Setting.setting" v-html="$page.props.Setting.setting.home_package_description">  </p>
            
            <div class="grid md:grid-cols-2 lg:grid-cols-4 m-1 gap-8">
   

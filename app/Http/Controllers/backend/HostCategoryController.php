@@ -7,6 +7,7 @@ use App\Http\Requests\HostCategoryStoreRequest;
 use App\Http\Requests\HostCategoryUpdateRequest;
 use App\Http\Resources\HostCategoryResource;
 use App\Models\HostCategory;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -90,6 +91,19 @@ class HostCategoryController extends Controller
      public function destroy(HostCategory $HostCategory)
      {
           $HostCategory->delete();
+     }
+
+
+     public function homeShow($id)
+     {
+          $hostCategory = HostCategory::findOrFail($id);
+          if($hostCategory->home_show ===1){
+                 $hostCategory->home_show = 0;
+          }else{
+               $hostCategory->home_show = 1;
+          }
+          $hostCategory->save();
+          return Redirect::back();
      }
 
 

@@ -2,11 +2,11 @@
    <FrontendLayout>
     
          <Home/>
-         <TabNav :categories="props.categories" :tabPackageOne="props.tabPackageOne" :tabPackageTwo="props.tabPackageTwo" :tabPackageThree="props.tabPackageThree" :tabPackageFour="props.tabPackageFour" :tabPackageFive="props.tabPackageFive" :tabPackageSix="props.tabPackageSix"/>
-         <Services/>
-         <Option/>
+         <TabNav :categories="props.categories" :home_categories="props.home_categories"/>
+         <Services :categories="props.categories"/>
+         <Option :features="props.features"/>
          <Package :fourPackage="props.fourPackage"  />
-         <FreeProvide/>
+         <FreeProvide :features="props.features"/>
          <Vps/>
          <Premium/>
   
@@ -29,12 +29,8 @@
  const props =  defineProps({
       categories : Object,
       fourPackage : Object,
-      tabPackageOne : Object,
-      tabPackageTwo : Object,
-       tabPackageThree : Object, 
-       tabPackageFour : Object,
-        tabPackageFive : Object,
-        tabPackageSix : Object
+       home_categories : Object,
+        features : Object
    })
 
 </script>

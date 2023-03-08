@@ -27,10 +27,10 @@ const submit = () => {
 
 <template>
 
-    <section class="min-h-[100vh] bg-indigo-300 flex items-center">
+    <section class="min-h-[100vh] bg-indigo-50 flex   justify-center -space-x-14 items-center">
         <Head title="Log in" />
 
-      <div class="w-10/12 lg:w-4/12 mx-auto bg-blue-300 p-10">
+      <div class="w-10/12 lg:w-4/12 mx-auto  bg-indigo-300 p-10 rounded-lg outline-1 outline-green-500">
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
@@ -83,11 +83,24 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton class="ml-4 bg-indigo-600" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
             </div>
         </form>
+      </div>
+
+      <div class="">
+      
+        <div>
+            <input
+              class="switch"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault02"
+               />
+          </div>
+
       </div>
 
     </section>

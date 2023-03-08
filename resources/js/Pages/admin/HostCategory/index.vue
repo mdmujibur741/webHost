@@ -6,10 +6,15 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputError from '@/Components/InputError.vue';
 import Pagination from "@/Components/Pagination.vue";
-import {useToastr} from '../../../toastr.js'
+import {useToastr} from '../../../toastr.js';
+import { QuillEditor } from '@vueup/vue-quill';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import { ref } from 'vue';
+import { router } from '@inertiajs/vue3';
 
 
 const toastr = useToastr();
+const description = ref('')
 
 defineProps({
  hostCategory : Object
@@ -19,7 +24,7 @@ const form =useForm({
      name : '',
      parent_id : '',
      priority : '',
-     description :'',
+     description :description,
      image : ''
 })
 
@@ -32,6 +37,11 @@ const submit = ()=> {
 function cleanForm(){
    form.reset();
    toastr.success("Host Category Add Successfully");
+}
+
+function homeShow($id){
+    router.get(route('admin.home.show',$id))
+    preserveScroll : true
 }
 
 </script>
@@ -73,7 +83,7 @@ function cleanForm(){
 
                      <div class="mt-4">
                       <InputLabel class="font-bold text-slate-900" for="description" value="Description" />
-                      <textarea v-model="form.description" id="description" class="form-control" rows="2" placeholder="Enter Description"></textarea>
+                      <QuillEditor v-model:content="description" id="description" contentType="html"  toolbar="full" />
                       <InputError class="mt-2" :message="form.errors.description" />
                   </div>
       
@@ -105,6 +115,7 @@ function cleanForm(){
                     
                          <th scope="col" class="px-4 py-2">Priority</th>
                          <th scope="col" class="px-4 py-2">Author</th>
+                         <th scope="col" class="px-4 py-2">Home Show</th>
                          <th scope="col" class="px-4 py-2">Action</th>
                        </tr>
                      </thead>
@@ -118,6 +129,13 @@ function cleanForm(){
                      
                          <td class="px-4 py-2 border"> {{ hostCat.priority }} </td>
                          <td class="px-4 py-2 border"> {{ hostCat.user }} </td>
+                         <td class="px-4 py-2 border"> 
+                               
+                                  <div @click="homeShow(hostCat.id)">
+                                    <input v-if="hostCat.home_show == 1"  class="switch" type="checkbox" checked  role="switch" id="index+1"   />
+                                    <input v-else  class="switch" type="checkbox" role="switch" id="index+1"   />  
+                                  </div> 
+                         </td>
                          <td class="px-4 py-2 border ">
                              <div class="flex justify-start items-center gap-4">
                             <div>  <Link :href="route('admin.HostCategory.edit',hostCat.slug)" class="btn-edit"> <i class="fa-solid fa-pen-to-square"></i></Link></div>

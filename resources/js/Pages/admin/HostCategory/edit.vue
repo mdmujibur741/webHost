@@ -8,13 +8,15 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputError from '@/Components/InputError.vue';
 import { ref } from 'vue';
-import Pagination from "@/Components/Pagination.vue";
 import {useToastr} from '../../../toastr.js'
 import { router } from '@inertiajs/vue3';
+import { QuillEditor } from '@vueup/vue-quill';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 
 
 const toastr = useToastr();
+const description = ref(props.hostCategory.description)
 
 const props = defineProps({
  hostCategory : Object,
@@ -23,7 +25,7 @@ const props = defineProps({
 
 const form =useForm({
      name : props.hostCategory?.name ,
-      description : props.hostCategory?.description ,
+      description : description ,
        image : null ,
       parent_id : props.hostCategory?.parent_id ,
       priority : props.hostCategory?.priority ,
@@ -38,6 +40,8 @@ const submit = ()=> {
     image : form.image ,
     parent_id : form.parent_id ,
     priority : form.priority ,
+   },{
+         onSuccess: ()=>cleanForm(),
    })
 }
 
@@ -91,7 +95,7 @@ function cleanForm(){
     
                 <div class="mt-4">
                     <InputLabel class="font-bold text-slate-900" for="description" value="Description" />
-                    <textarea v-model="form.description" id="description" class="form-control" rows="2" placeholder="Enter Description"></textarea>
+                    <QuillEditor v-model:content="description" id="description" contentType="html"  toolbar="full" />
                     <InputError class="mt-2" :message="form.errors.description" />
                 </div>
     

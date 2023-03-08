@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class HostPackage extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
 
     protected $fillable = ['title','slug', 'price', 'priority', 'description', 'icon_class', 	'opportunityOne','opportunityTwo', 'opportunityThree', 'opportunityFour', 'opportunityFive', 'opportunitySix', 'opportunitySeven', 'opportunityEight', 'opportunityNine', 'opportunityTen', 'opportunityEleven', 'opportunityTwelve', 'hostCategory_id', 'plan_id', 'duration_id','user_id' ];

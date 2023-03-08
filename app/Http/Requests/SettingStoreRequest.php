@@ -34,6 +34,8 @@ class SettingStoreRequest extends FormRequest
                 'instagram' => 'nullable|url',
                 	'footer_img_one' => 'nullable',
                     	'footer_img_two' => 'nullable',
+                    	'footer_img_three' => 'nullable',
+                    	'footer_img_four' => 'nullable',
                         	'footer_img_three' => 'nullable',	
                             'powered' => 'nullable',
                             'about' => 'nullable',

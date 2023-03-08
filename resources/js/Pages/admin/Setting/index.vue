@@ -14,6 +14,9 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 const about =ref('');
 const use_link = ref('')
+const home_feature_description = ref('');
+const home_package_description = ref('');
+const home_premium_description = ref('');
 const toastr = useToastr();
 
 
@@ -28,9 +31,20 @@ const form = useForm({
   facebook : "",
   twitter : "",
   instagram : "",
+  home_feature_title  : "",
+  home_feature_description : home_feature_description,
+  home_package_title : "",
+  home_package_description : home_package_description,
+  home_premium_title : "",
+  home_premium_description : home_premium_description,
+  home_premium_image : "",
   footer_img_one : "",
   footer_img_two : "",
-  use_link : use_link
+  footer_img_three : "",
+  footer_img_four : "",
+  use_link : use_link,
+   
+
 
 });
 
@@ -101,8 +115,31 @@ function cleanForm() {
               </div>
 
               <div class="mt-4">
+                <InputLabel class="text-slate-900 font-bold" for="home_feature_title" value="home Feature Title" />
+                <TextInput v-model="form.home_feature_title" class="form-control w-full"  id="mobile"  type="tel" placeholder="Enter home feature title" />
+                <InputError class="mt-2" :message="form.errors.home_feature_title" />
+              </div>
+
+              <div class="mt-4">
+                <InputLabel for="home_feature_description" class="font-bold" value="home_feature_description " />
+                  <QuillEditor v-model:content="home_feature_description" id="home_feature_description" contentType="html"  theme="snow"  />
+                </div>
+
+              <div class="mt-4">
+                <InputLabel class="text-slate-900 font-bold" for="home_package_title" value="home_package_title" />
+                <TextInput v-model="form.home_package_title" class="form-control w-full"  id="home_package_title"  type="tel" placeholder="Enter home_package_title"/>
+                <InputError class="mt-2" :message="form.errors.home_package_title" />
+              </div>
+
+              <div class="mt-4">
+                <InputLabel for="home_package_description" class="font-bold" value="home_package_description " />
+                  <QuillEditor v-model:content="home_package_description" id="home_package_description" contentType="html"  theme="snow"  />
+                </div>
+
+
+              <div class="mt-4">
                 <InputLabel for="about" class="font-bold" value="About " />
-                <QuillEditor v-model:content="about" contentType="html"  theme="snow"  />
+                <QuillEditor v-model:content="about" contentType="html" toolbar="full" theme="snow"  />
               </div>
                      
             </div>
@@ -128,28 +165,53 @@ function cleanForm() {
               <InputError class="mt-2" :message="form.errors.instagram" />
             </div>
 
-          
+             
+            <div class="mt-4">
+              <InputLabel class="text-slate-900 font-bold" for="home_premium_title" value="home_premium_title" />
+              <TextInput v-model="form.home_premium_title" class="form-control w-full"  id="home_premium_title"  type="tel" placeholder="Enter home_package_title" />
+              <InputError class="mt-2" :message="form.errors.home_package_title" />
+            </div>
+
+            <div class="mt-4">
+              <InputLabel for="home_premium_description" class="font-bold" value="home_premium_description " />
+                <QuillEditor v-model:content="home_premium_description" id="home_premium_description" contentType="html"  theme="snow" />
+              </div>
+
+            <div class="mt-4">
+              <InputLabel for="home_premium_image" class="font-bold" value="home_premium_image " />
+              <input type="file"  @input="form.home_premium_image = $event.target.files[0]" class="form-file "/>
+              <InputError :message="form.errors.home_premium_image" />
+            </div>
 
             <div class="mt-4">
                 <InputLabel for="footer_img_one	" class="font-bold" value="Footer Image One	" />
-                <input type="file" :v-model="form.footer_img_one"  @input="form.footer_img_one = $event.target.files[0]" class="form-file "/>
-                <!-- <TextInput  type="file" v-model="form.footer_img_one"  @input="form.footer_img_one = $event.target.files[0]" class="form-file" /> -->
+                <input type="file"   @input="form.footer_img_one = $event.target.files[0]" class="form-file "/>
                 <InputError :message="form.errors.footer_img_one" />
               </div>
 
               <div class="mt-4">
                 <InputLabel for="footer_img_two" class="font-bold" value="Footer Image Two " />
-                <input type="file" :v-model="form.footer_img_two"  @input="form.footer_img_two = $event.target.files[0]" class="form-file "/>
-                <!-- <TextInput  type="file" v-model="form.footer_img_two"  @input="form.footer_img_two = $event.target.files[0]" class="form-file" /> -->
+                <input type="file"   @input="form.footer_img_two = $event.target.files[0]" class="form-file "/>
                 <InputError :message="form.errors.footer_img_two" />
+              </div>
+
+              <div class="mt-4">
+                <InputLabel for="footer_img_three" class="font-bold" value="Footer Image Three " />
+                <input type="file"  @input="form.footer_img_three = $event.target.files[0]" class="form-file "/>
+                <InputError :message="form.errors.footer_img_three" />
+              </div>
+
+              <div class="mt-4">
+                <InputLabel for="footer_img_four" class="font-bold" value="Footer Image Four " />
+                <input type="file" @input="form.footer_img_four = $event.target.files[0]" class="form-file "/>
+                <InputError :message="form.errors.footer_img_four" />
               </div>
   
               <div class="mt-4">
                 <InputLabel for="use_link" class="font-bold" value="UseFul Link " />
-                  <QuillEditor v-model:content="use_link" id="use_link" contentType="html"  theme="snow"  />
+                  <QuillEditor v-model:content="use_link" id="use_link" toolbar="full" contentType="html"  theme="snow"  />
               </div>
-                 
-        
+  
               <div class="mt-4 text-center">
                 <PrimaryButton class="btn-indigo hover:bg-indigo-800" :class="{ 'opacity-80': form.processing }"  :disabled="form.processing">
                  Submit

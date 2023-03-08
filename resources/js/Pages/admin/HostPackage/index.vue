@@ -229,9 +229,18 @@ function getPage(){
 
                         <div class="w-full overflow-x-auto drop-shadow-xl rounded-xl ">
                           
-                          <div class="flex my-1  gap-5 ">
-                            <TextInput  id="title" v-model="search"  class="mt-1 ml-1 block w-full px-3 py-1 rounded-lg" placeholder="Search Name ....."/>
-                             <select @change="getPage()"  v-model="perPage" class="mt-1 block w-3/12 px-3 py-1 rounded-lg" >
+                          <div class="flex justify-between my-1  gap-5  p-3">
+
+                            <!-- Search Input And Pagination Input -->
+
+                            <div class="relative text-gray-600 focus-within:text-gray-400">
+                              <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                                  <i class="fa-solid fa-magnifying-glass py-2 px-3"></i>
+                              </span>
+                              <TextInput  type="search" v-model="search" name="q" class="py-2 px-8 text-sm text-gray-800 bg-blue-50 rounded-lg pl-10 focus:outline-none focus:bg-white focus:text-gray-900 " placeholder="Search..." autocomplete="off"/>
+                            </div>
+
+                             <select @change="getPage()"  v-model="perPage" class="mt-1 block w-24 px-3 py-1 rounded-lg" >
                                     <option value="5" > <b>Per 5</b> </option>
                                     <option value="10" > <b>Per 10</b> </option>
                                     <option value="20"> <b>Per 20</b> </option>

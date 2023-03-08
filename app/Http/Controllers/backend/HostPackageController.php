@@ -10,6 +10,7 @@ use App\Models\Duration;
 use App\Models\HostCategory;
 use App\Models\HostPackage;
 use App\Models\Plan;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
@@ -20,7 +21,7 @@ class HostPackageController extends Controller
     {
         $filters = Request::only('search','perPage');
         $inputSearch = Request::input('search');
-        $perPage = Request::input('perPage') ?: 5;
+        $perPage = Request::input('perPage') ?: 15;
         $plans = Plan::all();
         $hostCategory = HostCategory::all();
         $durations = Duration::all();
@@ -113,4 +114,21 @@ class HostPackageController extends Controller
       $hostPackage = HostPackage::where('slug', $slug)->firstOrFail()->delete();
          return to_route('admin.HostPackage.index');
     }
+
+    public function trash()
+    {
+        $hostPackageTrash =  HostPackageResource::collection(HostPackage::onlyTrashed()->latest()->paginate(30));
+          return Inertia::render('admin/HostPackage/trash', compact('hostPackageTrash'));
+      }
+
+      public function trashRestore($slug)
+      {
+         $package = HostPackage::withTrashed()->where('slug', $slug)->restore();
+         return Redirect::back();
+      }
+
+      public function trashDelete($slug)
+      {
+        $package = HostPackage::withTrashed()->where('slug', $slug)->forceDelete();
+      }
 }

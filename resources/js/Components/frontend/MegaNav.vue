@@ -4,7 +4,8 @@
           class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5"
         >
           <a href="#" class="flex items-center">
-              <img src="../../../../public/demo/logo.png" alt="logo">
+              <img v-if="$page.props.Setting.setting !== null" :src="'/storage/'+ $page.props.Setting.setting.logo" class="w-16 h-16 " alt="logo">
+             
           </a>
           <button @click="mobileMenu = !mobileMenu"
             id="mega-menu-full-cta-button"
@@ -29,16 +30,16 @@
               class="flex flex-col mt-4 text-sm font-medium md:flex-row md:space-x-8 md:mt-0"
             >
               <li>
-                <a 
-                    href="/"
+                <Link 
+                    :href="route('web.home')"
                   class="block py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0  "
                   aria-current="page"
-                  >Home</a 
+                  >Home</Link 
                 >
               </li>
               <li>
                 <button
-                  @mouseover="activeMenuOne()"  @click="itemOne= !itemOne"
+                  @mouseover="activeMenu(1)"  @click="itemOne= !itemOne"
                   id="mega-menu-full-cta-dropdown-button"
                   data-collapse-toggle="mega-menu-full-cta-dropdown"
                   data-dropdown-placement="bottom"
@@ -48,46 +49,28 @@
                 </button>    
               </li>
               <li>
-                <a
+                <Link
                   href="#"
-                  @mouseover="activeMenuTwo()"   @click="itemTwo = !itemTwo"
+                  @mouseover="activeMenu(2)"   @click="itemTwo = !itemTwo"
                   class="block py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0 "
-                  >Hosting <i class="fa-solid fa-caret-down font-bold px-2"></i></a>
+                  >Hosting <i class="fa-solid fa-caret-down font-bold px-2"></i></Link>
         
               </li>
-              <li>
-                <a
-                  href="#"
+
+              <li v-for="pag in $page.props.Pages.page" :key="pag">
+                <Link
+                  :href="route('web.page', pag.slug)"
                   class="block py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0 "
-                  >Server</a
+                  > {{ pag.slug }} </Link
                 >
               </li>
+            
+             
               <li>
-                <a
-                  href="#"
+                <Link
+                  :href="route('web.contact')"
                   class="block py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0 "
-                  >Voice</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0 "
-                  >Server</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0 "
-                  >Support</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0 "
-                  >Contact</a
+                  >Contact</Link
                 >
               </li>
 
@@ -108,10 +91,10 @@
                   aria-labelledby="mega-menu-full-cta-button"
                 >
                   <li>
-                    <a href="/chowdhuryhost/cpanel/host"
+                    <Link href="/chowdhuryhost/cpanel/host"
                       class="hover:underline hover:text-blue-600 dark:hover:text-blue-500" >               
                     route test
-                    </a>
+                    </Link>
                     
                   </li>
                   <li>
@@ -176,47 +159,37 @@
                   class="space-y-4 sm:mb-4 md:mb-0 w-full"
                   aria-labelledby="mega-menu-full-cta-button"
                 >
-                  <li>
+                  <li v-for="cat in $page.props.Category.category.slice(0,4)" :key="cat">
                     <Link
-                      :href="route('web.cpanel.hosting')"
-                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500"
+                      :href="route('web.host.category',cat.slug)"
+                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3"
                     >
-                      Cpanel Hosting
+                     <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
+                     <span class="capitalize font-bold">{{ cat.slug }}</span>
                     </Link>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500"
-                    >
-                      Segmentation
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500"
-                    >
-                      Marketing CRM
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500"
-                    >
-                      Online Stores
-                    </a>
-                  </li>
+               
                 </ul>
                 <ul class="mb-4 space-y-4 md:mb-0 w-6/12">
-                  <li>
-                    <a
-                      href="#"
-                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500"
-                    >
-                      Our Blog
-                    </a>
+                  <li v-for="cat in $page.props.Category.category.slice(4,8)" :key="cat">
+                    <Link
+                    :href="route('web.host.category',cat.slug)"
+                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3" >
+                      <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
+                      <span class="capitalize font-bold">{{ cat.slug }}</span> 
+                    </Link>
+                  </li>
+               
+                
+                </ul>
+                <ul class="mb-4 space-y-4 md:mb-0 w-6/12">
+                  <li v-for="cat in $page.props.Category.category.slice(9,12)" :key="cat">
+                    <Link
+                    :href="route('web.host.category',cat.slug)"
+                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3" >
+                      <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
+                       <span class="capitalize font-bold">{{ cat.slug }}</span>
+                    </Link>
                   </li>
                
                 
@@ -252,13 +225,10 @@
         const itemTwo = ref('false');
 
 
-        function activeMenuOne(){
-          this.menu =1;
+        function activeMenu($data){
+          this.menu = $data;
                       setTimeout(() => this.menu = 100, 3000);
         }
 
-        function activeMenuTwo(){
-          this.menu =2;
-                        setTimeout(() => this.menu = 100, 3000);
-        }
+       
 </script>

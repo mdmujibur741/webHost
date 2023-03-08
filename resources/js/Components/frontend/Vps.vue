@@ -1,5 +1,5 @@
 <template>
-          <section class="bg-[#09176A] min-h-[80vh] py-10">
+          <section class=" bg-violet-300 min-h-[80vh] py-10">
                <div class="w-11/12 lg:w-10/12 mx-auto py-8 m-2 grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
                 
                 <!-- First card -->
