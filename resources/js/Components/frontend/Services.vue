@@ -20,7 +20,7 @@
           <span
             class="absolute w-[80px] h-[80px] bg-[#09176A] rounded-full top-0 right-[42%] flex justify-center items-center"
           >
-             <img :src="'/storage/'+ category.image" alt="image" class="w-[70px] h-[70px] rounded-full">
+             <img :src="category.image" alt="image" class="w-[70px] h-[70px] rounded-full">
           </span>
           <div class="mt-12 px-5 min-h-[20vh] flex justify-center items-center">
             <div>

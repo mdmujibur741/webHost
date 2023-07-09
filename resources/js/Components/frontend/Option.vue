@@ -18,7 +18,7 @@
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-center my-6 lg:my-14 text-white"
       >
         <div v-for="feature in props.features.data.slice(0,4)" :key="feature" class="p-5 mx-auto">
-          <img :src="'/storage/'+ feature.image" alt="" class="w-24 h-24 mx-auto rounded-full p-1 bg-green-500" />
+          <img :src="feature.image" alt="" class="w-24 h-24 mx-auto rounded-full p-1 bg-green-500" />
           <h2 class="font-bold text-[18px] text-center"> {{ feature.title }} </h2>
           <p class="text-center">
              <span v-html="feature.description"></span>

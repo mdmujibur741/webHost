@@ -1,6 +1,8 @@
 <template>
    <FrontendLayout>
-    
+         <Head title="Home">
+            
+         </Head>
          <Home/>
          <TabNav :categories="props.categories" :home_categories="props.home_categories"/>
          <Services :categories="props.categories"/>
@@ -25,6 +27,7 @@
    import FreeProvide from '@/Components/frontend/FreeProvide.vue';
    import Vps from '@/Components/frontend/Vps.vue';
    import Premium from '@/Components/frontend/Premium.vue';
+   import { Head } from '@inertiajs/vue3';
 
  const props =  defineProps({
       categories : Object,

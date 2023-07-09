@@ -1,9 +1,9 @@
 <template>
     <section
-      class="min-h-[100vh] w-full bg-cover bg-center bg-right bg-[#09176A] md:bg-[url('../src/assets/banner.webp')]"
+      class="min-h-[100vh] w-full bg-cover bg-center  bg-[#09176A] md:bg-[url('../src/assets/banner.webp')]"
       
     >
-      <div class="lg:flex py-20 lg:justify-start justify-center min-h-[85vh] md:w-11/12 w-full px-20">
+      <div class="lg:flex py-20  justify-around min-h-[85vh] md:w-11/12 w-full px-20">
         <div class="border-2 border-slate-700 h-40 m-2 w-full md:w-6/12">
           <div class="flex justify-start items-center h-full ">
             <div
@@ -69,7 +69,12 @@
               </button>
             </div>
           </div>
+
         </div>
+        
+        <div class="hidden md:block  w-6/12 mx-auto">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO-bWCODbvm-cbIifMCq9Tb1UgkkMHU0BpsFN7nnutlg&s" alt="" srcset="" class="w-10/12 mx-auto rounded-md">
+ </div>
       </div>
     </section>
 </template>

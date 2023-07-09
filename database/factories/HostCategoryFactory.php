@@ -26,7 +26,8 @@ class HostCategoryFactory extends Factory
         'home_show'	=> 1,
         'description' => $this->faker->text(300),
         'priority' => $this->faker->unique()->numberBetween(1,100),
-         'user_id' => 1,  
+         'user_id' => 1, 
+         'image' => $this->faker->imageUrl(400,250) 
         ];
     }
 }

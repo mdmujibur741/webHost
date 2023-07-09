@@ -30,7 +30,7 @@ class FrontendController extends Controller
             $data['package'] = HostPackageResource::collection(HostPackage::where('hostCategory_id', $id)->inRandomOrder()->take(3)->get());
         });
           $fourPackage = HostPackageResource::collection(HostPackage::orderBy('priority','asc')->take(4)->get());
-          $features =  FeatureResource::collection(Feature::latest()->where('hostCategory_id', 0)->orderBy('priority', 'asc')->take(7)->get());
+          $features =  FeatureResource::collection(Feature::latest()->orderBy('priority', 'asc')->take(7)->get());
           return Inertia::render('frontend/index',compact('categories','fourPackage','home_categories','features'));
     }
 

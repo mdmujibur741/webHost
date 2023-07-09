@@ -17,7 +17,7 @@ class FeatureFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->unique()->randomElement(['DDOS PROTECTION','DATA BACKUP','DOMAIN FREE','SSL CERTIFICATE','MANAGED VPS','SECURITY OPTIMIZE']);
+        $title = $this->faker->randomElement(['DDOS PROTECTION','DATA BACKUP','DOMAIN FREE','SSL CERTIFICATE','MANAGED VPS','SECURITY OPTIMIZE']);
         $slug = Str::slug($title, '-');
 
         return [
@@ -26,7 +26,8 @@ class FeatureFactory extends Factory
         'description' => $this->faker->text(70),
         'priority' => $this->faker->unique()->numberBetween(1,100),
          'user_id' => 1,  
-         'hostCategory_id' => $this->faker->numberBetween(0,12),
+         'hostCategory_id' => $this->faker->numberBetween(1,12),
+         'image'=>  $this->faker->imageUrl(400,270),
         ];
     }
 }

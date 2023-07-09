@@ -1,6 +1,7 @@
 <script setup>
 
      import { ref } from 'vue';
+     import { Link } from '@inertiajs/vue3';
 
      const tab = ref(100);
 
@@ -273,24 +274,26 @@
                 <h3 class="text-lg lg:text-lg font-bold"> {{ pac.title }} </h3>
                 <p class="text-lg font-bold my-4"><span class="lg:text-2xl text-xl">${{ pac.price }}.00</span> {{  pac.duration.slice(0,3) }}/ USD</p>
                    
-                <p class="my-1 font-semibold"><i class="fa-solid fa-check text-[#17494D]"></i> {{ pac.opportunityOne }} </p>
-                <p class="my-1 font-semibold"><i class="fa-solid fa-check text-[#17494D]"></i> {{ pac.opportunityTwo }}</p>
-                <p class="my-1 font-semibold"><i class="fa-solid fa-check text-[#17494D]"></i> {{ pac.opportunityThree }} </p>
-                <p class="my-1 font-semibold"><i class="fa-solid fa-check text-[#17494D]"></i> {{ pac.opportunityFour }} </p>
-                <p class="my-1 font-semibold"><i class="fa-solid fa-check text-[#17494D]"></i> {{ pac.opportunityFive }} </p>
-                <p class="my-1 font-semibold"><i class="fa-solid fa-check text-[#17494D]"></i> {{ pac.opportunitySix }} </p>
-                <p class="my-1 font-semibold"><i class="fa-solid fa-check text-[#17494D]"></i> {{ pac.opportunitySeven }} </p>
+                <p class="my-1 font-semibold"><i :class="pac.icon_class" class="  text-[#17494D]"></i> {{ pac.opportunityOne }} </p>
+                <p class="my-1 font-semibold"><i :class="pac.icon_class" class="text-[#17494D]"></i> {{ pac.opportunityTwo }}</p>
+                <p class="my-1 font-semibold"><i :class="pac.icon_class" class="text-[#17494D]"></i> {{ pac.opportunityThree }} </p>
+                <p class="my-1 font-semibold"><i :class="pac.icon_class" class="text-[#17494D]"></i> {{ pac.opportunityFour }} </p>
+                <p class="my-1 font-semibold"><i :class="pac.icon_class" class="text-[#17494D]"></i> {{ pac.opportunityFive }} </p>
+                <p class="my-1 font-semibold"><i :class="pac.icon_class" class="text-[#17494D]"></i> {{ pac.opportunitySix }} </p>
+                <p class="my-1 font-semibold"><i :class="pac.icon_class" class="text-[#17494D]"></i> {{ pac.opportunitySeven }} </p>
                 <p class="my-1 font-semibold">
                   <i class="fa-solid fa-check text-[#17494D]"></i> Powerful tools available
                 </p>
                        <p class="mt-8">   <a href="" class="btn hover:bg-green-600 text-white bg-green-500">Order Now</a></p>
-              </div>
-  
+                            
+                      </div>            
             </div>
   
+            <Link :href="`/category/${category.slug}`">
             <div class="w-full mt-5 hover:bg-green-600 text-white bg-green-500 drop-shadow-xl min-h-[8vh] flex justify-center items-center">
-                 <h3 class="lg:text-xl"> <a href="">Check it Now  <i class="fa-solid fa-angle-right"></i></a> </h3>
-            </div>
+                 <h3 class="lg:text-xl"> Check it Now  <i class="fa-solid fa-angle-right"></i> </h3>
+         </div>
+        </Link>
           </div>
 
         </div>

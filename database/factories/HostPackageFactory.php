@@ -40,8 +40,8 @@ class HostPackageFactory extends Factory
        'opportunityEleven' => $this->faker->text(25),
        'opportunityTwelve' => $this->faker->text(25),
        'hostCategory_id' => $this->faker->numberBetween(1,12),	
-       'plan_id' => $this->faker->numberBetween(1,3),	
-        'duration_id' => $this->faker->numberBetween(1,3),	
+       'plan_id' => $this->faker->numberBetween(1,4),	
+        'duration_id' => $this->faker->numberBetween(1,4),	
         'user_id' => 1,
         ];
     }

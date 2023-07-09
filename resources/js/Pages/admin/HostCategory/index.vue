@@ -124,7 +124,7 @@ function homeShow($id){
                          <td class="px-4 py-2 border"> {{index+1}}</td>
                          <td class="px-4 py-2 border capitalize"> {{ hostCat.name }} </td>
                          <td class="px-4 py-2 border capitalize"> 
-                            <img :src="'/storage/'+hostCat.image" alt="image" class="w-10 h-8">
+                            <img :src="hostCat.image" alt="image" class="w-10 h-8">
                         </td>
                      
                          <td class="px-4 py-2 border"> {{ hostCat.priority }} </td>

@@ -19,7 +19,7 @@
 
                            
                        <div>
-                             <img :src="'/storage/'+category.image" class="m-3  p-1 " alt="category Image">
+                             <img :src="category.image" class="m-3  p-1 w-full rounded-md " alt="category Image">
                        </div>
               </div>
        </section>

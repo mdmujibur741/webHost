@@ -2,7 +2,7 @@
 <section class="min-h-[70vh] bg-blue-100 flex justify-center items-center">
    <div class="w-11/12 lg:w-10/12  grid lg:grid-cols-3 justify-center mx-auto">
          <div class="mx-auto">
-              <img v-if="$page.props.Setting.setting" :src="$page.props.Setting.setting.home_premium_title" alt="Premium Image" class="">
+              <img v-if="$page.props.Setting.setting" :src="$page.props.Setting.setting.home_premium_image" alt="Premium Image" class="w-3xl rounded-md">
          </div>
          <div class="lg:col-span-2 mx-auto">
             

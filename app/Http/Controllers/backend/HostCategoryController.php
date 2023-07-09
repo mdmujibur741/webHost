@@ -30,7 +30,7 @@ class HostCategoryController extends Controller
  
        
           if($request->hasFile('image')){
-                $image = $request->file('image')->store('image');
+                $image = '/storage/'. $request->file('image')->store('image');
           }else{
                 $image = null;
           }
@@ -69,7 +69,7 @@ class HostCategoryController extends Controller
                     Storage::delete($hostCategory->image);
                     
                }
-               $image = $request->file('image')->store('image');
+               $image = '/storage/'. $request->file('image')->store('image');
          }else{
                $image = $hostCategory->image;
          }

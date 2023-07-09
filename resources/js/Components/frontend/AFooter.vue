@@ -5,7 +5,7 @@
         <h2 class="text-lg font-bold text-white">ABOUT US</h2>
         <hr class="border border-white w-3/12" />
         <p class="m-1 py-4 text-gray-300">
-          <span v-if="$page.props.Setting.setting!==null" v-html="$page.props.Setting.setting.about">
+          <span v-if="$page.props.Se!==null" v-html="$page.props.Setting.setting.about">
 
           </span>
            <span v-else> No Data Found </span>
@@ -41,10 +41,10 @@
 
              </div>
           <div class="flex gap-x-1">
-                <img v-if="$page.props.Setting.setting!==null" :src="'/storage/'+ $page.props.Setting.setting.footer_img_one" class="w-24 h-16" alt="">
-                <img v-if="$page.props.Setting.setting!==null" :src="'/storage/'+ $page.props.Setting.setting.footer_img_two" class="w-24 h-16" alt="">
-                <img v-if="$page.props.Setting.setting!==null" :src="'/storage/'+ $page.props.Setting.setting.footer_img_three" class="w-24 h-16" alt="">
-                <img v-if="$page.props.Setting.setting!==null" :src="'/storage/'+ $page.props.Setting.setting.footer_img_four" class="w-24 h-16" alt="">
+                <img v-if="$page.props.Setting.setting!==null" :src="$page.props.Setting.setting.footer_img_one" class="w-24 h-16" alt="">
+                <img v-if="$page.props.Setting.setting!==null" :src="$page.props.Setting.setting.footer_img_two" class="w-24 h-16" alt="">
+                <img v-if="$page.props.Setting.setting!==null" :src="$page.props.Setting.setting.footer_img_three" class="w-24 h-16" alt="">
+                <img v-if="$page.props.Setting.setting!==null" :src="$page.props.Setting.setting.footer_img_four" class="w-24 h-16" alt="">
           </div> 
       </div>
     </div>

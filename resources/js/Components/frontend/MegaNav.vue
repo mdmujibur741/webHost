@@ -3,10 +3,10 @@
         <div
           class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5"
         >
-          <a href="#" class="flex items-center">
-              <img v-if="$page.props.Setting.setting !== null" :src="'/storage/'+ $page.props.Setting.setting.logo" class="w-16 h-16 " alt="logo">
+          <Link href="/" class="flex items-center">
+              <img v-if="$page.props.Setting.setting !== null" :src="$page.props.Setting.setting.logo" class="w-16 h-16 rounded-full" alt="logo">
              
-          </a>
+          </Link>
           <button @click="mobileMenu = !mobileMenu"
             id="mega-menu-full-cta-button"
             data-collapse-toggle="mega-menu-full-cta"
@@ -48,13 +48,21 @@
                   Domain <i class="fa-solid fa-caret-down font-bold px-2"></i>
                 </button>    
               </li>
-              <li>
-                <Link
-                  href="#"
-                  @mouseover="activeMenu(2)"   @click="itemTwo = !itemTwo"
-                  class="block py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0 "
-                  >Hosting <i class="fa-solid fa-caret-down font-bold px-2"></i></Link>
+              <li  >
+                <button @mouseover="activeMenu(2)"  @click="itemTwo = !itemTwo"
+                  id="mega-menu-full-cta-dropdownTwo"
+                data-collapse-toggle="mega-menu-full-cta-dropdownTwo"
+                data-dropdown-placement="bottom"
+                 
+                 
+                  class="flex items-center justify-start w-full  py-2 pl-3 pr-4 font-bold md:text-[15px] text-gray-700 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-400 md:p-0 "
+                  >Hosting <i class="fa-solid fa-caret-down font-bold px-2"></i>
+                </button>
         
+
+              
+                  
+
               </li>
 
               <li v-for="pag in $page.props.Pages.page" :key="pag">
@@ -79,7 +87,7 @@
               <!-- lg screen Dropdown start -->
   
               <div
-              v-if="menu===1"  
+              v-if="menu===1" @mouseout="deActiveMenu(0)"   @mouseover="activeMenu(1)"
               id="mega-menu-full-cta-dropdown"
               class="bg-white absolute right-0 top-13 md:top-20 lg:w-full w-64  sm:mx-auto  z-50 border-gray-200 shadow-xl border-y drop-shadow-lg"
             >
@@ -91,10 +99,10 @@
                   aria-labelledby="mega-menu-full-cta-button"
                 >
                   <li>
-                    <Link href="/chowdhuryhost/cpanel/host"
+                    <a href=""
                       class="hover:underline hover:text-blue-600 dark:hover:text-blue-500" >               
                     route test
-                    </Link>
+                  </a>
                     
                   </li>
                   <li>
@@ -145,57 +153,57 @@
             </div>
             
 
-
- 
-              <div
-              v-if="menu===2"  
-              id="mega-menu-full-cta-dropdown"
-              class="bg-white absolute right-0 top-13 md:top-20 lg:w-full w-64  sm:mx-auto  z-50 border-gray-200 border-y drop-shadow-lg"
+            <div
+            v-if="menu===2"  @mouseout="deActiveMenu(0)"   @mouseover="activeMenu(2)"    
+            id="mega-menu-full-cta-dropdownTwo"
+            class="bg-white absolute right-0 top-13 md:top-20 lg:w-full w-64  sm:mx-auto  z-50 border-gray-200 border-y drop-shadow-lg"
+          >
+            <div
+              class="flex flex-col lg:flex-row justify-start  px-4 py-5 mx-auto text-sm text-gray-500  md:px-6"
             >
-              <div
-                class="flex flex-col lg:flex-row justify-start  px-4 py-5 mx-auto text-sm text-gray-500  md:px-6"
+              <ul
+                class="space-y-4 sm:mb-4 md:mb-0 w-full"
+                aria-labelledby="mega-menu-full-cta-button"
               >
-                <ul
-                  class="space-y-4 sm:mb-4 md:mb-0 w-full"
-                  aria-labelledby="mega-menu-full-cta-button"
-                >
-                  <li v-for="cat in $page.props.Category.category.slice(0,4)" :key="cat">
-                    <Link
-                      :href="route('web.host.category',cat.slug)"
-                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3"
-                    >
-                     <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
+                <li v-for="cat in $page.props.Category.category.slice(0,4)" :key="cat">
+                  <Link
+                    :href="route('web.host.category',cat.slug)"
+                    class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3"
+                  >
+                   <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
+                   <span class="capitalize font-bold">{{ cat.slug }}</span>
+                  </Link>
+                </li>
+             
+              </ul>
+              <ul class="mb-4 space-y-4 md:mb-0 w-6/12">
+                <li v-for="cat in $page.props.Category.category.slice(4,8)" :key="cat">
+                  <Link
+                  :href="route('web.host.category',cat.slug)"
+                    class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3" >
+                    <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
+                    <span class="capitalize font-bold">{{ cat.slug }}</span> 
+                  </Link>
+                </li>
+             
+              
+              </ul>
+              <ul class="mb-4 space-y-4 md:mb-0 w-6/12">
+                <li v-for="cat in $page.props.Category.category.slice(9,12)" :key="cat">
+                  <Link
+                  :href="route('web.host.category',cat.slug)"
+                    class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3" >
+                    <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
                      <span class="capitalize font-bold">{{ cat.slug }}</span>
-                    </Link>
-                  </li>
-               
-                </ul>
-                <ul class="mb-4 space-y-4 md:mb-0 w-6/12">
-                  <li v-for="cat in $page.props.Category.category.slice(4,8)" :key="cat">
-                    <Link
-                    :href="route('web.host.category',cat.slug)"
-                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3" >
-                      <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
-                      <span class="capitalize font-bold">{{ cat.slug }}</span> 
-                    </Link>
-                  </li>
-               
-                
-                </ul>
-                <ul class="mb-4 space-y-4 md:mb-0 w-6/12">
-                  <li v-for="cat in $page.props.Category.category.slice(9,12)" :key="cat">
-                    <Link
-                    :href="route('web.host.category',cat.slug)"
-                      class="hover:underline hover:text-blue-600 dark:hover:text-blue-500 flex gap-3" >
-                      <!-- <img :src="'/storage/'+ cat.Image" alt="image" class="w-16">   -->
-                       <span class="capitalize font-bold">{{ cat.slug }}</span>
-                    </Link>
-                  </li>
-               
-                
-                </ul>
-              </div>
-            </div> 
+                  </Link>
+                </li>
+             
+              
+              </ul>
+            </div>
+          </div> 
+ 
+           
             
             </ul>
           </div>
@@ -225,9 +233,15 @@
         const itemTwo = ref('false');
 
 
-        function activeMenu($data){
-          this.menu = $data;
-                      setTimeout(() => this.menu = 100, 3000);
+        function activeMenu(data){
+          this.menu = data;
+
+                   
+        }
+        function deActiveMenu(data){
+          this.menu = data;
+         
+                 
         }
 
        

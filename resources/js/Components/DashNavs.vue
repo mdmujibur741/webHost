@@ -10,7 +10,7 @@
                          <i class="fa-solid fa-bars"></i>
                        
                       </button>
-                     <Link href="/" class="p-2 m-1"> <img v-if="$page.props.Setting.setting" :src="'/storage/'+ $page.props.Setting.setting.logo" alt="Logo" class="w-8 h-8 rounded-full bg-green-500 p-2"> </Link>
+                     <Link href="/" class="p-2 m-1"> <img v-if="$page.props.Setting.setting" :src="$page.props.Setting.setting.logo" alt="Logo" class="w-8 h-8 rounded-full bg-green-500 p-2"> </Link>
                    </div>
                    <div class="flex items-center">
                        <div class="flex items-center ml-3">
@@ -88,7 +88,7 @@
 
             <li>
               <span @click="dropDownItem=!dropDownItem" type="button" class="dash-nav">
-                <i class="fa-solid fa-anchor text-lg"></i>
+                <i class="fa-solid fa-boxes-packing text-lg"></i>
                   <span class="flex-1 ml-3 whitespace-nowrap"> Host Package </span>
                  
           </span>

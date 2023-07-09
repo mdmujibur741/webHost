@@ -7,15 +7,17 @@
 
 <template>
       <section class="bg-[#C4B5FD] min-h-[85vh] p-5">
-                      <h3 class="text-center text-4xl font-bold text-white p-2 m-1 mt-6"> {{ category.name }}  </h3>
+                     <div class="w-11/12 md:w-8/12 mx-auto">
+                        <h3 class="text-center text-4xl font-bold text-black p-2 m-1 mt-6"> {{ category.name }}  </h3>
 
-                 <p class="text-center text-md  text-white  p-2 m-1" v-html="category.description">  </p>
+                        <p class="text-center text-md  text-black  p-2 m-1" v-html="category.description">  </p>
+                     </div>
            <div class="lg:w-10/12 w-full mx-auto m-2 p-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-14">
                   
-                 <div v-for="feature in allCatFeatures.data" class="p-4 hover:bg-slate-100 text-black">
+                 <div v-for="feature in allCatFeatures.data" class="p-4 hover:bg-slate-100 text-black shadow-2xl bg-gray-50 rounded-xl">
                          <div class="grid grid-cols-1 lg:grid-cols-4 justify-start gap-3">
                                <div>
-                                   <img :src="'/storage/'+ feature.image" class="" alt="feature Image">
+                                   <img :src="feature.image" class="rounded-xl shadow-xl" alt="feature Image">
                                </div>
                                <div class="lg:col-span-3">
                               <h3 class="text-lg font-semibold   py-3 m-1"> {{ feature.title }}  </h3>

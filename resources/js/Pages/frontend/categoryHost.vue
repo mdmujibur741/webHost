@@ -1,5 +1,6 @@
 <template>
          <FrontendLayout>
+            <Head :title="props.category.name"/>
              <CpHostHome :category="props.category"/>
              <CpHostPrice :duration_package="props.duration_package" :category="props.category"/>
              <FreeProvide :features="props.features" :category="props.category"/>
@@ -19,10 +20,11 @@
          import UnlimitedBandwidth from '@/Components/frontend/UnlimitedBandwidth.vue';
          import OtherFech from '@/Components/frontend/OtherFech.vue';
          import ChooseUs from '@/Components/frontend/ChooseUs.vue';
+         import { Head } from '@inertiajs/vue3';
 
          const props = defineProps({
             features : Object,    
-            category: Object,
+            category: Array,
             duration_package : Object,
             allCatFeatures : Object
 

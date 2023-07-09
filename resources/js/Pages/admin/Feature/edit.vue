@@ -93,7 +93,7 @@ function cleanForm(){
                                   <option :value="0" selected>All Category</option> <!-- 100# Menes all Category -->
                                   <option  v-for="category in hostCategory" :key="category" :value="category.id"> {{ category.slug }} </option>
                       </select>
-                    <InputError :message="form.errors.image" />
+                    <InputError :message="form.errors.hostCategory_id" />
                   </div>
 
                    <div class="mt-4">
@@ -106,7 +106,7 @@ function cleanForm(){
                   
 
                 <div class="mt-4 flex justify-between items-end">      
-                    <img :src="'/storage/'+ props.feature.image" class="w-24 h-14" alt="category Logo">       
+                    <img :src="props.feature.image" class="w-24 h-14" alt="category Logo">       
                     <PrimaryButton class="btn-indigo font-bold hover:bg-indigo-800" :class="{ 'opacity-80': form.processing }" :disabled="form.processing">
                         Update Feature
                     </PrimaryButton>

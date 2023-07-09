@@ -1,6 +1,6 @@
 <template>
     <FrontendLayout>
-    <section class="bg-indigo-100 min-h-[105vh]">
+    <section class="bg-indigo-100 min-h-[105vh] mx-auto">
       <div class="lg:w-10/12 w-full mx-auto p-5">
         <h5 class="text-lg font-bold text-black m-1 p-1">REGISTER</h5>
         <h2 class="text-5xl font-extrabold text-black m-1 p-1">
@@ -10,50 +10,33 @@
           Secure your domain by registering your domain with us!
         </p>
   
-        <!-- search -->
+<div class="mx-auto">
+          <!-- search -->
+      
+
         <div
-          class="lg:w-10/12 w-full grid grid-cols-7 shadow-2xl px-2 m-1 bg-gray-50 mt-8 text-2xl rounded-xl"
-        >
-          <span class="py-2"
-            ><i class="fa-solid fa-magnifying-glass text-lg text-slate-400"></i
-          ></span>
-          <span class="col-span-5 py-2">
-            <input
-              type="search"
-              class="w-full h-full border-0 hover:border-0 px-6 text-lg m-1 focus:outline-none focus:ring-0"
-              placeholder="Search Here ..."
-            />
-          </span>
-          <span class="py-2"
-            ><input type="submit" class="bg-red-500 w-full text-white py-2" value="Search"
-          /></span>
-        </div>
+        class="lg:w-9/12  w-full mx-auto flex gap-x-4 items-center justify-between shadow-lg px-2 m-1 bg-gray-50 mt-8 text-2xl rounded-xl"
+      >
+        <span class="py-2 flex-none md:w-24 w-18 "
+          ><i class="fa-solid fa-magnifying-glass text-lg text-slate-400"></i
+        ></span>
+        <span class="grow  ">
+          <input
+            type="search"
+            class="w-full h-full border-0 hover:border-0 px-6 text-lg m-1 focus:outline-none focus:ring-0"
+            placeholder="Search Here ..."
+          />
+        </span>
+        <span class="py-2 flex-none w-24"
+          ><input type="submit" class="bg-red-500 w-full rounded-lg text-white py-2" value="Search"
+        /></span>
+      </div>
   
-        <div class="flex lg:w-10/12 w-full my-3">
-          <p class="flex-auto">
-            <span class="text-lg font-bold">.com</span> <br />
-            <span class="text-[13px]">only $11.50 /yr </span>
-          </p>
-          <p class="flex-auto">
-            <span class="text-lg font-bold"> .in </span> <br />
-            <span class="text-[13px]">only $7.61 /yr</span>
-          </p>
-          <p class="flex-auto">
-            <span class="text-lg font-bold">.net</span> <br />
-            <span class="text-[13px]">only $12.38 /yr</span>
-          </p>
-          <p class="flex-auto">
-            <span class="text-lg font-bold">.org</span> <br />
-            <span class="text-[13px]">only $11.33 /yr</span>
-          </p>
-          <p class="flex-auto">
-            <span class="text-lg font-bold">.accountant</span> <br />
-            <span class="text-[13px]">only $24.77 /yr</span>
-          </p>
-        </div>
+       
+</div>
   
         <div
-          class="w-full lg:w-10/12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-10"
+          class="w-full  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-10"
         >
           <div class="h-40 pt-5 p-3 bg-white text-center">
             <p class="py-2"><i class="fa-solid fa-cloud text-red-500 text-xl"></i></p>
@@ -524,29 +507,29 @@
       <div class="w-full lg:w-8/12 mx-auto my-10">
           
   
-            <div class="border-t border-gray-400 py-2">
-              <p class="flex justify-between text-lg font-semibold" @click="collapseOne = !collapseOne">   <span> <span>01</span>   Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span> </p>
+            <div class="border-t border-gray-400 py-4">
+              <p class="flex justify-between text-2xl font-semibold" @click="collapseOne = !collapseOne">   <span> <span>01</span>   Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span> </p>
                 <p :class="{hidden : collapseOne}"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt, quibusdam unde. Nemo quas accusamus maxime ipsum tempora eveniet temporibus rerum!.</p>
             </div>
   
-            <div class="border-t border-gray-400 py-2">
-              <p class="flex justify-between text-lg font-semibold" @click="collapseTwo = !collapseTwo">   <span> <span>02</span>  Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span>  </p>
+            <div class="border-t border-gray-400 py-4">
+              <p class="flex justify-between text-2xl font-semibold" @click="collapseTwo = !collapseTwo">   <span> <span>02</span>  Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span>  </p>
                 <p :class="{hidden : collapseTwo}"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam porro adipisci a maiores aperiam asperiores quos hic nobis quod fugiat?.</p>
             </div>
   
   
-            <div class="border-t border-gray-400 py-2">
-              <p class="flex justify-between text-lg font-semibold" @click="collapseThree = !collapseThree">  <span> <span>03</span>  Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span>   </p>
+            <div class="border-t border-gray-400 py-4">
+              <p class="flex justify-between text-2xl font-semibold" @click="collapseThree = !collapseThree">  <span> <span>03</span>  Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span>   </p>
                 <p :class="{hidden : collapseThree}"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo inventore earum ipsum odio nostrum pariatur esse neque, in commodi, vitae modi nisi a? Nihil expedita dolores at. Dolores, laudantium minus. .</p>
             </div>
   
-            <div class="border-t border-gray-400 py-2">
-              <p class="flex justify-between text-lg font-semibold" @click="collapseFour = !collapseFour">   <span> <span>04</span> Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span>  </p>
+            <div class="border-t border-gray-400 py-4">
+              <p class="flex justify-between text-2xl font-semibold" @click="collapseFour = !collapseFour">   <span> <span>04</span> Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span>  </p>
                 <p :class="{hidden : collapseFour}"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis molestias dolore deleniti nulla eos aliquid? </p>
             </div>
   
-            <div class="border-y border-gray-400 py-2">
-              <p class="flex justify-between text-lg font-semibold" @click="collapseFive = !collapseFive">   <span><span>05</span> Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span></p>
+            <div class="border-y border-gray-400 py-4">
+              <p class="flex justify-between text-2xl font-semibold" @click="collapseFive = !collapseFive">   <span><span>05</span> Will my services be setup immediately?</span>   <span><i class="fa-solid fa-chevron-down text-lg font-bold"></i></span></p>
                 <p :class="{hidden : collapseFive}"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam optio suscipit atque expedita aliquid consequuntur minima dolor, sequi blanditiis nam. .</p>
             </div>
   

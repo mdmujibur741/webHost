@@ -141,7 +141,7 @@ function cleanForm() {
                   
                  <div>
                   <div>
-                    <img :src="'/storage/'+ props.setting.logo" class="h-18 w-24" alt="logo">
+                    <img :src="props.setting.logo" class="h-18 w-24" alt="logo">
                    </div>
                  </div>
               </div>
@@ -154,7 +154,7 @@ function cleanForm() {
                 <InputError :message="form.errors.favicon" />
                 </div>
                  <div>
-                  <img :src="'/storage/'+ props.setting.favicon" class="h-18 w-24" alt="Favicon">
+                  <img :src="props.setting.favicon" class="h-18 w-24" alt="Favicon">
                  </div>
               </div>
 
@@ -235,7 +235,7 @@ function cleanForm() {
               <InputError :message="form.errors.home_premium_image" />
              </div>
              <div>
-              <img :src="'/storage/' + props.setting.home_premium_image" class="w-24 h-18" alt="">
+              <img :src="props.setting.home_premium_image" class="w-24 h-18" alt="">
           </div>
             </div>
                
@@ -248,7 +248,7 @@ function cleanForm() {
                 <InputError :message="form.errors.footer_img_one" />
                 </div>
                   <div>
-                      <img :src="'/storage/' + props.setting.footer_img_one" class="w-24 h-18" alt="">
+                      <img :src="props.setting.footer_img_one" class="w-24 h-18" alt="">
                   </div>
                 <div>
 
@@ -262,7 +262,7 @@ function cleanForm() {
                 <InputError :message="form.errors.footer_img_two" />
                </div>
                 <div>
-                  <img :src="'/storage/' + props.setting.footer_img_two" class="w-24 h-18" alt="">
+                  <img :src="props.setting.footer_img_two" class="w-24 h-18" alt="">
               </div>
               </div>
 
@@ -273,7 +273,7 @@ function cleanForm() {
                  <InputError :message="form.errors.footer_img_three" />
                 </div>
                  <div>
-                   <img :src="'/storage/' + props.setting.footer_img_three" class="w-24 h-18" alt="">
+                   <img :src="props.setting.footer_img_three" class="w-24 h-18" alt="">
                </div>
                </div>
 
@@ -285,7 +285,7 @@ function cleanForm() {
                  <InputError :message="form.errors.footer_img_four" />
                 </div>
                  <div>
-                   <img :src="'/storage/' + props.setting.footer_img_four" class="w-24 h-18" alt="">
+                   <img :src="props.setting.footer_img_four" class="w-24 h-18" alt="">
                </div>
                </div>
   

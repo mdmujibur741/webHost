@@ -30,7 +30,7 @@ const submit = () => {
     <section class="min-h-[100vh] bg-indigo-50 flex   justify-center -space-x-14 items-center">
         <Head title="Log in" />
 
-      <div class="w-10/12 lg:w-4/12 mx-auto  bg-indigo-300 p-10 rounded-lg outline-1 outline-green-500">
+      <div class="w-10/12 lg:w-4/12 mx-auto  bg-indigo-50 shadow-2xl text-black p-10 rounded-lg outline-1 outline-green-500">
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
@@ -90,18 +90,7 @@ const submit = () => {
         </form>
       </div>
 
-      <div class="">
-      
-        <div>
-            <input
-              class="switch"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault02"
-               />
-          </div>
 
-      </div>
 
     </section>
 

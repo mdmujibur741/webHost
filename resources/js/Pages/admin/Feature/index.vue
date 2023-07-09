@@ -127,7 +127,7 @@ function cleanForm(){
                          <td class="px-4 py-2 border"> {{index+1}}</td>
                          <td class="px-4 py-2 border capitalize"> {{ feature.title }} </td>
                          <td class="px-4 py-2 border capitalize"> 
-                            <img :src="'/storage/'+feature.image" alt="image" class="w-10 h-8">
+                            <img :src="feature.image" alt="image" class="w-10 h-8">
                         </td>
                          <td class="px-4 py-2 border"> <span v-html="feature.description.slice(0,15)"></span> </td>
                          <td class="px-4 py-2 border"> {{ feature.priority }} </td>

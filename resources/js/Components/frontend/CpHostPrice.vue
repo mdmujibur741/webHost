@@ -1,6 +1,6 @@
 <template>
  
-    <section class="bg-indigo-300 p-6 ">
+    <section class="bg-indigo-300 p-6 mx-auto">
      <h3 class="m-2 py-4 text-4xl font-extrabold text-center capitalize "> {{ props.category.name  }} Prices </h3>
 
     <p class="text-center pb-4 mb-6 text-gray-900">  <div class="m-1" v-html="props.category.description"></div>  </p>
@@ -28,7 +28,7 @@
                   <h2 class="text-lg font-bold uppercase m-1 text-start"> {{ slid.category }} </h2>
                   <h2 class="text-lg font-bold uppercase m-1 text-start">  {{ slid.duration }} </h2>
                   <p class="text-md text-justify m-1">
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo rem ab ex quasi debitis ducimus!
+                      {{ props.category.description }}
                   </p>
                    <p class="text-start p-2 text-2xl lg:text-4xl font-black mt-6 m-1">&#36; {{ slid.price }} </p>
                   <span class="bg-blue-600 text-start px-5 py-2 text-white rounded-lg font-semibold m-2"> {{ slid.duration }} </span>
@@ -89,7 +89,7 @@ import 'vue3-carousel/dist/carousel.css';
 
 
 const props = defineProps({
-     category: Object,
+     category: Array,
      duration_package :Object
 })
 

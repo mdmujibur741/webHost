@@ -13,7 +13,7 @@
                  
                  <!-- Card  -->
                  <div v-for="feature in props.features.data.slice(0,3)" :key="feature" class="mx-auto text-center hover:bg-gray-200 hover:text-green-500 hover:drop-shadow-md px-6 py-2"> 
-                         <img :src="'/storage/'+ feature.image" alt="Feature image" class="w-24 h-20 rounded-full p-1 bg-green-500 mx-auto">
+                         <img :src="feature.image" alt="Feature image" class="w-24 h-20 rounded-full p-1 bg-green-500 mx-auto">
                     
                         <h2 class=" p-1 font-extrabold text-[18px]">
                            {{ feature.title }}
